@@ -1,2 +1,2 @@
-# react-weather-app
-My first react app that displays weather
+# react-todo-app
+This is the application that displays the todo.
