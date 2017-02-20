@@ -18,4 +18,19 @@ describe('todoapp',() => {
 
     expect(todoApp.state.todos[0].text).toBe(todoText);
   })
+
+  it('should change the completed value on handleTodo',() => {
+    var todoData = {
+      id : 1,
+      text : 'testing the todo',
+      completed : false,
+    }
+
+    var todoApp = TestUtils.renderIntoDocument(<TodoApp />);
+    todoApp.setState({todos : [todoData]});
+    expect(todoApp.state.todos[0].completed).toBe(false)
+    todoApp.handleToggle(todoData['id']);
+    var actualValue = !todoData['completed'];
+    expect(todoApp.state.todos[0].completed).toBe(true)
+  })
 })
