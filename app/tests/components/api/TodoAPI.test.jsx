@@ -21,7 +21,15 @@ describe('TodoAPI',() => {
       var actualTodos = JSON.parse(localStorage.getItem('todos'));
 
       expect(actualTodos).toEqual(todos);
-      
+    })
+
+    it('should not set the invalid todos array',() => {
+      var todos = {hello :'gurjit'};
+      TodoAPI.setTodos(todos);
+
+      var actualTodos = JSON.parse();
+
+      expect(localStorage.getItem('todos')).toBe(todos);
     })
   })
 
@@ -29,5 +37,37 @@ describe('TodoAPI',() => {
     it('set valid todos array',() => {
 
     })
+  })
+
+  describe('filterTodos',() => {
+    var todos = [
+      {
+        id : 1,
+        text : 'some text',
+        completed : false,
+      },
+      {
+        id : 2,
+        text : 'otehr text',
+        completed : true,
+      },
+      {
+        id : 3,
+        text : 'some text',
+        completed : false,
+      }
+    ]
+
+    it('should return all the items if show completed is true',() => {
+      var filteredTodos = TodoAPI.filterTodos(todos,'',true);
+
+      expect(filteredTodos.length).toBe(3);
+    });
+
+    it('should return necessary items if show completed is false',() => {
+      var filteredTodos = TodoAPI.filterTodos(todos,'',false);
+
+      expect(filteredTodos.length).toBe(2);
+    });
   })
 })

@@ -22,5 +22,15 @@ module.exports = {
     }
 
     return Array.isArray(todos) ? todos : [] ;
+  },
+  filterTodos : function(todos,searchText,showCompleted) {
+    var filterTodos = todos;
+
+    // show by completed
+    filterTodos = filterTodos.filter((todo) => {
+      return !todo.completed || showCompleted;
+    })
+
+    return filterTodos;
   }
 }
