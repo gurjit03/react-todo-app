@@ -1,0 +1,13 @@
+.page-title {
+  text-align: center;
+  margin: $mg-medium * 1rem;
+  padding: $pd-medium * 1rem;
+}
+
+.todo-app-container {
+  background: $light-grey;
+  border: 1px solid $light-grey-border;
+  border-radius: .3rem;
+  padding: 0;
+  margin-bottom: $mg-medium * 1rem;
+}

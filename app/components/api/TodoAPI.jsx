@@ -31,6 +31,27 @@ module.exports = {
       return !todo.completed || showCompleted;
     })
 
+    // filter by search text
+    filterTodos = filterTodos.filter((todo) => {
+      if (searchText == '') {
+        return true;
+      }else {
+        return todo.text.indexOf(searchText) > -1 ? true : false;
+      }
+    })
+
+    //Sort the todos which is non completed to the first
+
+    filterTodos.sort((todo1,todo2) => {
+        if(!todo1.completed && todo2.completed) {
+          return -1;
+        }else if (todo1.completed && !todo2.completed) {
+          return 1;
+        }else {
+          return 0;
+        }
+    })
+
     return filterTodos;
   }
 }

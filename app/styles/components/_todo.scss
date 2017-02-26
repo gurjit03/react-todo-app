@@ -1,0 +1,34 @@
+.todo {
+  display: flex;
+
+  align-items: center;
+  cursor: pointer;
+  padding: $pd-small * 1rem;
+  transition: background .3s ease;
+
+  &:hover {
+    background-color: #f0f0f0;
+  }
+
+  &-completed {
+    p , .todo-date-text {
+      color: #aaa;
+      text-decoration: line-through;
+    }
+  }
+
+  &-text {
+    display: flex;
+    flex-direction: column;
+    margin: 0.5rem;
+  }
+
+  &-date-text {
+    color: #999;
+  }
+
+  p,input {
+    margin: 0;
+  }
+
+}

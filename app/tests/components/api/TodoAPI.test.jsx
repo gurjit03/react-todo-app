@@ -1,4 +1,4 @@
-var expect = require('expect');
+cvar expect = require('expect');
 
 var TodoAPI = require('TodoAPI');
 
@@ -69,5 +69,17 @@ describe('TodoAPI',() => {
 
       expect(filteredTodos.length).toBe(2);
     });
+
+    it('should sort the todos',() => {
+      var filteredTodos = TodoAPI.filterTodos(todos,'',true);
+
+      expect(filteredTodos[2].completed).toBe(true);
+    })
+
+    it('should search the  todos',() => {
+      var filteredTodos = TodoAPI.filterTodos(todos,'some',true);
+
+      expect(filteredTodos.length).toBe(2);
+    })
   })
 })
